@@ -1,8 +1,7 @@
-import React, { ReactNode, forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 import './styles.scss'
-import { ScrollArea } from '../ScrollArea'
 
 export interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
@@ -14,6 +13,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         <textarea
           className={twMerge('textarea', className)}
           ref={ref}
+          spellCheck={false}
           {...props}
         />
       </div>
