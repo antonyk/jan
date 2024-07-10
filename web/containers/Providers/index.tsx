@@ -22,6 +22,7 @@ import DataLoader from './DataLoader'
 
 import DeepLinkListener from './DeepLinkListener'
 import KeyListener from './KeyListener'
+import ModalMigrations from './ModalMigrations'
 import Responsive from './Responsive'
 
 import { extensionManager } from '@/extension'
@@ -80,7 +81,9 @@ const Providers = ({ children }: PropsWithChildren) => {
               <KeyListener>
                 <EventListenerWrapper>
                   <DataLoader>
-                    <DeepLinkListener>{children}</DeepLinkListener>
+                    <DeepLinkListener>
+                      <ModalMigrations>{children}</ModalMigrations>
+                    </DeepLinkListener>
                   </DataLoader>
                 </EventListenerWrapper>
                 <Toaster />
