@@ -6,6 +6,10 @@ REPORT_PORTAL_PROJECT_NAME ?= ""
 REPORT_PORTAL_LAUNCH_NAME ?= "Jan App"
 REPORT_PORTAL_DESCRIPTION ?= "Jan App report"
 
+# Opt out telemetry from Turbo
+export TURBO_TELEMETRY_DISABLED := 1
+export DO_NOT_TRACK := 1
+
 # Default target, does nothing
 all:
 	@echo "Specify a target to run"
@@ -35,6 +39,7 @@ else
 endif
 
 dev: check-file-counts
+	@echo "TURBO_TELEMETRY_DISABLED is: $${TURBO_TELEMETRY_DISABLED}"
 	yarn dev
 
 # Linting
